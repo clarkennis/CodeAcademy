@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>GETTING STARTED WITH BRACKETS</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+    </head>
+    
+    <body>
+        
+        <h1>Hello World!</h1>
+        
+              
+    <!-- Compiled JavaScript -->
+    <script>  
+        // Simple console log
+        console.log("Hello World!")
+        
+        // Simple If/Then
+        var speed = 65;
+        if (speed > 65) {
+            console.log("Slow down")
+        } 
+        else {
+            console.log("Drive safe")
+        }
+        
+        // Simple function
+        var divideByThree = function (number) {
+            var val = number / 3;
+            console.log(val);
+        };
+        divideByThree(6);
+        
+        // Simple Switch Statement
+        var candy = prompt("What's your favorite candy?","Type your favorite candy here.");
+        switch(candy) {
+          case 'licorice':
+            console.log("Gross!");
+            break;
+          case 'gum':
+            console.log("I like gum!");
+            break;
+          default:
+            console.log("Idk what you mean");
+        }
+        
+        // Object Example
+        var friends = {};
+        friends.bill = {
+            firstName: "Bill",
+            lastName: "Ennis",
+            number: "555-555-5555",
+            address: ['111','Main St','Ames','IA','50010']
+        };
+        friends.steve = {
+            firstName: "Steve",
+            lastName: "Ennis",
+            number: "555-555-5555",
+            address: ['222','Main St','Ames','IA','50010']
+        };
+        
+        var list = function(friends) {
+            for(var key in friends) {
+                console.log(friends[key].firstName);
+            }
+        }
+        list(friends);
+        
+        // Function Example
+        for (var i = 1; i < 21; i++) {
+            console.log(i);
+            if (divisibleByThree(i) && divisibleByFive(i)) {
+                console.log("FizzBuzz");
+            }
+            else if (divisibleByThree(i)) {
+                console.log("Fizz");
+            }
+            else if (divisibleByFive(i)) {
+                console.log("Buzz");
+            }
+        };
+
+        function divisibleByThree(number) {
+            if (number % 3 === 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        };
+
+        function divisibleByFive(number) {
+            if (number % 5 === 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        };
+        
+        // Method Example
+        var setAge = function (newAge) {
+          this.age = newAge;
+        };
+        var bob = new Object();
+        bob.age = 30;
+        bob.setAge = setAge;
+        bob.setAge(25);
+        
+        // Constructor Example
+        function Person(name,age) {
+          this.name = name;
+          this.age = age;
+        }
+        var bob = new Person("Bob Smith", 30);
+        
+        // Constructor with Methods Example
+        // Methods normally used to: 1) Update the object properties
+        // 2)Calculate something based on an object's properties.
+        function Rectangle(height, width) {
+          this.height = height;
+          this.width = width;
+          this.calcArea = function() {
+              return this.height * this.width;
+          };
+          this.calcPerimeter = function() {
+              return this.height*2 + this.width*2;
+          };
+        }
+        var rex = new Rectangle(7,3);
+        var area = rex.calcArea();
+        var perimeter = rex.calcPerimeter();
+        
+        // Passing objects into functions
+        function People (name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        var ageDifference = function(person1, person2) {
+            return person1.age - person2.age;
+        };
+        var alice = new People("Alice", 30);
+        var billy = new People("Billy", 25);
+        console.log(ageDifference(alice, billy))
+        
+        // Phone Book Lookup Example
+        var bob = {
+            firstName: "Bob",
+            lastName: "Jones",
+            phoneNumber: "(650) 777-7777",
+            email: "bob.jones@example.com"
+        };
+        var mary = {
+            firstName: "Mary",
+            lastName: "Johnson",
+            phoneNumber: "(650) 888-8888",
+            email: "mary.johnson@example.com"
+        };
+        var contacts = [bob, mary];
+        function printPerson(person) {
+            console.log(person.firstName + " " + person.lastName);
+        }
+        function list() {
+            var contactsLength = contacts.length;
+            for (var i = 0; i < contactsLength; i++) {
+                printPerson(contacts[i]);
+            }
+        }
+        function search(lastName) {
+            var contactsLength = contacts.length
+            for (var i = 0; i < contactsLength; i++) {
+                if (contacts[i].lastName === lastName) {
+                    printPerson(contacts[i]);
+                };
+            }
+        }
+        function add(firstName, lastName, email, phoneNumber) {
+            contacts[contacts.length] = {
+            firstName: firstName,
+            lastName: lastName,
+            phoneNumber: phoneNumber,
+            email: email
+            };
+        };
+        add("Clark", "Ennis", "test@aol.com", "515-450-2222");
+        list();
+        search("Jones");
+        
+    </script>
+        
+        
+        
+        
+    </body>
+</html>
